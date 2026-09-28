@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_journey/features/settings/settings_screen.dart';
 
 class ContactScreen extends StatelessWidget {
   const ContactScreen({super.key});
@@ -6,6 +7,12 @@ class ContactScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text('Contact page'),
+        centerTitle: true,
+        backgroundColor: Colors.purple.shade100,
+        elevation: 1,
+      ),
       body: Padding(
         padding: const EdgeInsets.only(top: 70.0),
         child: Row(
@@ -60,6 +67,27 @@ class ContactScreen extends StatelessWidget {
                   const Text(
                     "Abdul-04",
                     style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+                  ),
+
+                  TextButton(
+                    onPressed: () {
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return SettingsScreen();
+                          },
+                        ),
+                      );
+                    },
+                    child: Text("Go to SettingsScreen"),
+                  ),
+
+                  TextButton(
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    child: Text("Back"),
                   ),
                 ],
               ),

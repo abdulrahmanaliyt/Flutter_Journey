@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_journey/features/contacts/contacts_screen.dart';
+import 'package:flutter_journey/features/settings/settings_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -7,29 +9,45 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Flutter Journey'),
+        title: const Text('More About Nevigation'),
         centerTitle: true,
-        backgroundColor: Colors.purple.shade100,
+        backgroundColor: Colors.deepPurpleAccent.shade100,
       ),
-      body: SafeArea(
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const Icon(
-                Icons.flutter_dash,
-                size: 80,
-                color: Colors.deepPurple,
-              ),
-              const SizedBox(height: 16),
-              Text(
-                'Home Screen',
-                style: Theme.of(context).textTheme.headlineMedium,
-              ),
-              const SizedBox(height: 8),
-              const Text('Your app setup is working properly!'),
-            ],
-          ),
+      body: Center(
+        child: Column(
+          children: [
+            TextButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return ContactScreen();
+                    },
+                  ),
+                );
+              },
+              child: Text("Go to Next ContactsScreen"),
+            ),
+
+            TextButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return SettingsScreen();
+                    },
+                  ),
+                );
+              },
+              child: Text("Go to SettingsScreen"),
+            ),
+            ElevatedButton(onPressed: (){
+              Navigator.pushNamed(context, '/settings');
+            }, child: Text('Named Contacts'))
+            
+          ],
         ),
       ),
     );
