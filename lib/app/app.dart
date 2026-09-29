@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_journey/features/contacts/contacts_screen.dart';
+import 'package:flutter_journey/features/feed/feed_screen.dart';
 import 'package:flutter_journey/features/home/home_screen.dart';
 import 'package:flutter_journey/features/settings/settings_screen.dart';
 
@@ -17,6 +18,7 @@ class MyApp extends StatelessWidget {
         '/': (context) => HomeScreen(),
         '/settings': (context) => SettingsScreen(),
         '/contact': (context) => ContactScreen(),
+        '/card': (context) => FeedScreen(),
       },
 
       theme: ThemeData(
