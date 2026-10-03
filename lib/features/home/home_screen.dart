@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_journey/features/contacts/contacts_screen.dart';
 import 'package:flutter_journey/features/feed/feed_screen.dart';
 import 'package:flutter_journey/features/settings/settings_screen.dart';
-import 'package:flutter_journey/features/card/card_screen.dart';
+
+// import 'package:flutter_journey/features/card/card_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -14,6 +15,50 @@ class HomeScreen extends StatelessWidget {
         title: const Text('More About Navigation'),
         centerTitle: true,
         backgroundColor: Colors.deepPurpleAccent.shade100,
+      ),
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: [
+            const DrawerHeader(
+              decoration: BoxDecoration(color: Colors.blue),
+              child: Text(
+                'Menu',
+                style: TextStyle(color: Colors.white, fontSize: 24),
+              ),
+            ),
+            ListTile(
+              leading: const Icon(Icons.settings),
+              title: const Text('Go to SettingsScreen'),
+              onTap: () {
+                Navigator.pop(context);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const SettingsScreen(),
+                  ),
+                );
+              },
+            ),
+          ],
+        ),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        selectedItemColor: Colors.black,
+        unselectedItemColor: Colors.black,
+        items: const [
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.access_time_filled),
+            label: "Access Time Filled",
+          ),
+          BottomNavigationBarItem(icon: Icon(Icons.alarm), label: "Alarm"),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.alarm_off),
+            label: "Alarm Off",
+          ),
+        ],
       ),
       body: Center(
         child: SingleChildScrollView(

@@ -101,7 +101,7 @@ class ContactScreen extends StatelessWidget {
                 ),
               ],
             ),
-
+            CircularProgressIndicator(),
             Icon(Icons.account_balance, size: 80),
 
             const SizedBox(height: 20.0),
@@ -119,7 +119,14 @@ class ContactScreen extends StatelessWidget {
               child: const Text("Go to SettingsScreen"),
             ),
 
-            IconButton(onPressed: () {}, icon: Icon(Icons.notification_add)),
+            IconButton(
+              onPressed: () {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(content: Text("You Clicked Icon Button")),
+                );
+              },
+              icon: Icon(Icons.notification_add),
+            ),
 
             TextField(decoration: InputDecoration(hintText: "Enter your name")),
 
@@ -129,7 +136,6 @@ class ContactScreen extends StatelessWidget {
               },
               child: const Text("Back"),
             ),
-
           ],
         ),
       ),
